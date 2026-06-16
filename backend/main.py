@@ -31,7 +31,9 @@ def get_db():
     finally:
         db.close()
 
+
 @app.get("/api/incidents")
 def get_incidents(db: Session = Depends(get_db)):
     logger.info("Запрос списка инцидентов")
     return {"status": "success", "data": []}
+
