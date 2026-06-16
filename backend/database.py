@@ -8,4 +8,4 @@ try:
     engine = create_engine(DATABASE_URL)
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 except Exception:
-    logger.error("Ошибка подключеня к бд")
+    logger.error("Ошибка подключеня к бд", exc_info=True)

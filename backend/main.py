@@ -17,7 +17,7 @@ class Incident(Base):
 try:
     Base.metadata.create_all(bind=engine)
 except Exception:
-    logger.error("Ошибка подключеня к бд")
+    logger.error("Ошибка подключеня к бд", exc_info=True)
 
 app = FastAPI(title="NexusMonitor API")
 app.add_middleware(

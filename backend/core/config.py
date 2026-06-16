@@ -14,4 +14,4 @@ class Settings(BaseSettings):
 try:
     settings = Settings()
 except Exception:
-    logger.error("Нет данных в .env")
+    logger.error("Нет данных в .env", exc_info=True)
