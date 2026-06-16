@@ -14,7 +14,10 @@ class Incident(Base):
     title = Column(String, index=True)
     status = Column(String, default="open")
 
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception:
+    logger.error("Ошибка подключеня к бд")
 
 app = FastAPI(title="NexusMonitor API")
 app.add_middleware(
