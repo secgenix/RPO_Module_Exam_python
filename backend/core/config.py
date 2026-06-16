@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-
+from core.logging_config import logger 
 class Settings(BaseSettings):
     DB_USER: str
     DB_PASSWORD: str
@@ -11,4 +11,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
 
-settings = Settings()
+try:
+    settings = Settings()
+except Exception:
+    logger.error("Нет данных в .env")
